@@ -48,7 +48,6 @@ const k = new Kernel();
 app.post(`/${Deno.env.get("SECRET_PATH")!}`, async (ctx) => {
     return new Promise(async (r, j) => {
         const process = k.spawn();
-        process.postMessage({ type: "init"})
         process.emit("update", await ctx.req.json());
 
         r(new Response(""))

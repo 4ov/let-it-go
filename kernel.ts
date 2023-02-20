@@ -13,7 +13,7 @@ export class Process extends Worker{
         })
     }
 }
-
+const x = new SharedArrayBuffer(1000)
 export default class Kernel {
     private cores = new Set<Process>();
 
@@ -28,6 +28,8 @@ export default class Kernel {
             console.log(ev.data);
             
         })
+
+        
         
 
         this.cores.add(worker);

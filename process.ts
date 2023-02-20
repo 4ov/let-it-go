@@ -114,10 +114,13 @@ bot.on("::url", async (ctx) => {
 });
 
 events.on("update", async (update: any) => {
-    await bot.init();
-    await bot.handleUpdate(update)
-    queueMicrotask(()=>{
-        
+    try{
+        await bot.init();
+        await bot.handleUpdate(update)
+    
+    }finally{
         self.close()
-    })
+        
+    }
+   
 });
